@@ -45,13 +45,10 @@ function calculateIntegral() {
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = `
         <h3>Результат:</h3>
-        <p>Интеграл от ${a} до ${b} функции f(x) = x² - cos(x)</p>
+        <p>Интеграл от ${a} до ${b} функции f(x) = x^2 - cos(x)</p>
         <p>Количество подинтервалов: ${n}</p>
         <p><strong>Значение интеграла ≈ ${result.toFixed(6)}</strong></p>
     `;
-
-    // Также выводим в консоль для отладки
-    console.log(`Интеграл от ${a} до ${b} с n=${n}:`, result);
 }
 
 function f(x) {
