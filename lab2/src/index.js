@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const variable = variableInput.value.trim();
 
         if (!expression || !variable) {
-            resultDiv.textContent = 'Please enter both expression and variable.';
+            resultDiv.textContent = 'Введите обе переменные.';
             resultDiv.style.color = 'red';
             return;
         }
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDiv.textContent = result;
             resultDiv.style.color = '#27ae60';
         } catch (error) {
-            resultDiv.textContent = `Error: ${error.message}`;
+            resultDiv.textContent = `Ошибка: ${error.message}`;
             resultDiv.style.color = 'red';
         }
     });

@@ -1,11 +1,7 @@
 class MiniMaple {
     static diff(expression, variable) {
-        if (typeof expression !== 'string' || typeof variable !== 'string') {
-            throw new Error('Both expression and variable must be strings');
-        }
-        
         if (variable.length !== 1 || !/^[a-zA-Z]$/.test(variable)) {
-            throw new Error('Variable must be a single letter');
+            throw new Error('Переменная должна быть одна');
         }
         
         if (expression.trim() === '') {
@@ -99,18 +95,14 @@ class MiniMaple {
             return left;
         };
         
-        const parseAtom = () => {
-            if (pos >= tokens.length) {
-                throw new Error('Unexpected end of expression');
-            }
-            
+        const parseAtom = () => {            
             const token = tokens[pos];
             
             if (token === '(') {
                 pos++;
                 const expr = parseExpression();
                 if (pos >= tokens.length || tokens[pos] !== ')') {
-                    throw new Error('Missing closing parenthesis');
+                    throw new Error('Скобки не закрыты');
                 }
                 pos++;
                 return expr;
@@ -126,13 +118,13 @@ class MiniMaple {
                 return { type: 'variable', name: token };
             }
             
-            throw new Error(`Unexpected token: ${token}`);
+            throw new Error(`Неожиданный символ: ${token}`);
         };
         
         const ast = parseExpression();
         
         if (pos < tokens.length) {
-            throw new Error(`Unexpected token: ${tokens[pos]}`);
+            throw new Error(`Неожиданный символ: ${tokens[pos]}`);
         }
         
         return ast;
@@ -216,15 +208,13 @@ class MiniMaple {
                             },
                             right: fPrime
                         };
-                    } else {
-                        throw new Error('Non-constant exponents are not supported');
                     }
                 }
                 
                 break;
                 
             default:
-                throw new Error(`Unknown AST node type: ${ast.type}`);
+                throw new Error(`Неизвестный оператор: ${ast.type}`);
         }
     }
     

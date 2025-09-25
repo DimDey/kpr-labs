@@ -1,5 +1,4 @@
-// test/miniMaple.test.js
-import { MiniMaple } from "../src/miniMaple";
+import { MiniMaple } from "../src/miniMaple.js";
 
 describe('MiniMaple', () => {
     test('differentiates 4*x^3 with respect to x', () => {
