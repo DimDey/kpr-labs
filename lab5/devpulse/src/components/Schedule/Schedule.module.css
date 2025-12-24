@@ -1,0 +1,93 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 15px;
+}
+
+.lessonItem {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.75rem;
+    border-left: 3px solid transparent;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.active {
+    background: rgba(56, 189, 248, 0.07);
+    border-left-color: var(--accent-blue);
+    transform: scale(1.02);
+}
+
+.sideInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    gap: 0.25rem;
+}
+
+.dayBadge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: bold;
+}
+
+.timeText {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.mainInfo {
+    flex: 1;
+}
+
+.subject {
+    font-size: 0.95rem;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.room {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.type {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 0.4rem;
+    border-radius: 4px;
+}
+
+.nowIndicator {
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    background: var(--accent-blue);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.empty {
+    text-align: center;
+    color: var(--text-dim);
+    padding: 1rem;
+}

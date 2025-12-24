@@ -1,0 +1,183 @@
+/* src/components/Header/Header.module.css */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background: rgba(15, 23, 42, 0.8); /* Полупрозрачный фон */
+    backdrop-filter: blur(12px); /* Размытие заднего фона */
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 2rem;
+  }
+  
+  /* Логотип и статус */
+  .leftSide {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+  
+  .logoIcon {
+    background: rgba(56, 189, 248, 0.1);
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+  }
+  
+  .logoText {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(74, 222, 128, 0.1);
+    border-radius: 2rem;
+  }
+  
+  .statusIndicator {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-green);
+  }
+  
+  .statusText {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent-green);
+    text-transform: uppercase;
+  }
+  
+  /* Поиск (Декоративный) */
+  .searchBar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    width: 300px;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .searchBar:focus-within {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-blue);
+  }
+  
+  .searchInput {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+    outline: none;
+    flex: 1;
+  }
+  
+  .searchKbd {
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    color: var(--text-dim);
+  }
+  
+  /* Правая часть */
+  .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .dateTime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  .date {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .actionBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: relative;
+    transition: all 0.2s;
+  }
+  
+  .actionBtn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+  }
+  
+  .notificationDot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+  }
+  
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    margin-left: 0.5rem;
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Мобильная адаптивность */
+  @media (max-width: 768px) {
+    .searchBar, .status {
+      display: none;
+    }
+  }

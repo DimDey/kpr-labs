@@ -1,0 +1,217 @@
+/* src/components/TaskList/TaskList.module.css */
+
+/* Прогресс-бар */
+.progressHeader {
+    margin-bottom: 1.5rem;
+  }
+  
+  .progressBar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-green), #86efac);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Форма ввода */
+  .inputGroup {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputWrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputIcon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-dim);
+  }
+  
+  .input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 0.7rem 1rem 0.7rem 2.5rem;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s;
+  }
+  
+  .input:focus {
+    border-color: var(--accent-green);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+  }
+  
+  .addBtn {
+    background: var(--accent-green);
+    color: #064e3b;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .addBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+  }
+  
+  .addBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
+  
+  /* Список задач */
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  
+  /* Скроллбар для списка */
+  .list::-webkit-scrollbar { width: 4px; }
+  .list::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+  }
+  
+  .item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+  }
+  
+  /* Кастомный чекбокс */
+  .checkboxContainer {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  
+  .checkboxContainer:hover input ~ .checkmark {
+    border-color: var(--accent-green);
+  }
+  
+  .checkboxContainer input:checked ~ .checkmark {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #064e3b;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Текст задачи */
+  .taskText {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: all 0.2s;
+  }
+  
+  .completed .taskText {
+    text-decoration: line-through;
+    color: var(--text-dim);
+    opacity: 0.6;
+  }
+  
+  .deleteBtn {
+    background: transparent;
+    border: none;
+    color: #475569;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    opacity: 0; /* Скрыта по умолчанию */
+    transition: all 0.2s;
+  }
+  
+  .item:hover .deleteBtn {
+    opacity: 1;
+  }
+  
+  .deleteBtn:hover {
+    background: rgba(248, 113, 113, 0.1);
+    color: var(--accent-red);
+  }
+  
+  /* Пустое состояние */
+  .emptyState {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-dim);
+  }
+  
+  .emptyIcon {
+    margin-bottom: 1rem;
+    opacity: 0.2;
+    color: var(--accent-green);
+  }
+  
+  .emptyState p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
